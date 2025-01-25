@@ -303,21 +303,32 @@ const animationTimeline = () => {
   });
 };
 
+// Initialize Start Button Logic
 const initStartButton = () => {
   const startButton = document.getElementById("startButton");
   const startAudio = document.getElementById("startAudio");
 
-  startButton.addEventListener("click", () => {
+  const handleClick = () => {
     // Play audio
     startAudio.play();
 
-    // Hide button
-    startButton.style.display = "none";
-      });
+    // Disable button immediately to prevent multiple clicks
+    startButton.disabled = true;
+
+    // Add a fade-out effect for the button (optional)
+    startButton.style.transition = "opacity 0.5s ease";
+    startButton.style.opacity = "0";
+
+    // Delay hiding the button and starting the animation
+    setTimeout(() => {
+      startButton.style.display = "none"; // Hide the button
+      fetchData(); // Fetch data and start the animation
+    }, 500); // Adjust delay as needed
+  };
+
+  startButton.addEventListener("click", handleClick);
 };
 
-// Initialize the start button
+// Call the initialization function
 initStartButton();
 
-// Run fetch and animation in sequence
-fetchData();
