@@ -316,7 +316,6 @@ body {
 
 #startButton:hover {
   background-color: #ff85c1;
-  transform: scale(1.05);
 }
 
 #startButton:disabled {
