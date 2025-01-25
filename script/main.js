@@ -303,5 +303,21 @@ const animationTimeline = () => {
   });
 };
 
+const initStartButton = () => {
+  const startButton = document.getElementById("startButton");
+  const startAudio = document.getElementById("startAudio");
+
+  startButton.addEventListener("click", () => {
+    // Play audio
+    startAudio.play();
+
+    // Hide button
+    startButton.style.display = "none";
+      });
+};
+
+// Initialize the start button
+initStartButton();
+
 // Run fetch and animation in sequence
 fetchData();
