@@ -309,6 +309,8 @@ const initStartButton = () => {
   const startButton = document.getElementById("startButton");
   const startAudio = document.getElementById("startAudio");
 
+  startAudio.loop = true;
+
   const handleClick = () => {
     // Play audio
     startAudio.play();
