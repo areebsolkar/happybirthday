@@ -24,6 +24,7 @@ const fetchData = () => {
     });
 };
 
+const startAudio = document.getElementById("startAudio");
 
 // Animation Timeline
 const animationTimeline = () => {
@@ -300,6 +301,8 @@ const animationTimeline = () => {
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
+    startAudio.pause();
+    startAudio.currentTime = 0;
   });
 };
 
