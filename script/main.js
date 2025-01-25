@@ -24,8 +24,6 @@ const fetchData = () => {
     });
 };
 
-const startAudio = document.getElementById("startAudio");
-
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
@@ -54,7 +52,15 @@ const animationTimeline = () => {
     skewX: "-15deg"
   };
 
-  const tl = new TimelineMax();
+  const startAudio = document.getElementById("startAudio"); // Reference the audio element
+
+  const tl = new TimelineMax({
+    onComplete: () => {
+      // Stop the audio when the animation ends
+      startAudio.pause();
+      startAudio.currentTime = 0; // Reset the audio
+    }
+  });
 
   tl
     .to(".container", 0.1, {
@@ -301,8 +307,7 @@ const animationTimeline = () => {
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
-    startAudio.pause();
-    startAudio.currentTime = 0;
+    startAudio.play();
   });
 };
 
