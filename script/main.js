@@ -54,14 +54,8 @@ const animationTimeline = () => {
 
   const startAudio = document.getElementById("startAudio"); // Reference the audio element
 
-  const tl = new TimelineMax({
-    onComplete: () => {
-      // Stop the audio when the animation ends
-      startAudio.pause();
-      startAudio.currentTime = 0; // Reset the audio
-    }
-  });
-
+  const tl = new TimelineMax();
+  
   tl
     .to(".container", 0.1, {
       visibility: "visible"
@@ -307,7 +301,6 @@ const animationTimeline = () => {
   const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
     tl.restart();
-    startAudio.play();
   });
 };
 
