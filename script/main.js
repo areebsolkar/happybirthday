@@ -24,6 +24,19 @@ const fetchData = () => {
     });
 };
 
+window.onload = function () {
+  const audio = new Audio('img/audio.mp3');
+  audio.loop = true; // Loop the audio
+  audio.volume = 0.5; // Set volume
+
+  // Wait for user interaction to play audio
+  document.getElementById('play-audio-btn').addEventListener('click', () => {
+    audio.play().catch(error => {
+      console.log("Audio playback failed:", error);
+    });
+  });
+};
+
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
